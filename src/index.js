@@ -95,7 +95,6 @@ const onRequest = (request, response) => {
     response.end();
   }
 
-  notReal()
 };
 
 // 8 - create the server, hook up the request handling function, and start listening on `port`
