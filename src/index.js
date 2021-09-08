@@ -11,6 +11,8 @@ const http = require('http');
 // 2 - pull in URL and query modules (for URL parsing)
 const url = require('url');
 const query = require('querystring');
+const { runMain } = require('module');
+const { notStrictEqual } = require('assert');
 // const path = require('path');
 
 // 3 - locally this will be 3000, on Heroku it will be assigned
@@ -70,7 +72,7 @@ const onRequest = (request, response) => {
   const { pathname } = parsedUrl;
   // console.log('parsedUrl=', parsedUrl);
   // console.log('pathname=', pathname);
-
+  
   if (pathname === '/') {
     // console.log("Found");
     response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -92,6 +94,8 @@ const onRequest = (request, response) => {
     response.write(errorPage);
     response.end();
   }
+
+  notReal()
 };
 
 // 8 - create the server, hook up the request handling function, and start listening on `port`
